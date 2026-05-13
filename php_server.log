@@ -1,0 +1,27 @@
+[Wed May 13 03:38:22 2026] PHP 8.3.6 Development Server (http://localhost:8000) started
+[Wed May 13 03:38:38 2026] [::1]:49666 Accepted
+[Wed May 13 03:38:38 2026] [::1]:49666 [404]: HEAD /
+[Wed May 13 03:38:38 2026] [::1]:49666 Closing
+[Wed May 13 03:40:49 2026] [::1]:36988 Accepted
+[Wed May 13 03:40:49 2026] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' in /app/app/core/Database.php:32
+Stack trace:
+#0 /app/app/core/Database.php(39): App\Core\Database->__construct()
+#1 /app/app/core/Model.php(11): App\Core\Database::getInstance()
+#2 /app/app/controllers/AuthController.php(30): App\Core\Model->__construct()
+#3 /app/app/core/Router.php(42): App\Controllers\AuthController->__construct()
+#4 /app/public/index.php(31): App\Core\Router->dispatch()
+#5 {main}
+  thrown in /app/app/core/Database.php on line 32
+[Wed May 13 03:40:49 2026] [::1]:36988 [200]: GET / - Uncaught PDOException: SQLSTATE[HY000] [1698] Access denied for user 'root'@'localhost' in /app/app/core/Database.php:32
+Stack trace:
+#0 /app/app/core/Database.php(39): App\Core\Database->__construct()
+#1 /app/app/core/Model.php(11): App\Core\Database::getInstance()
+#2 /app/app/controllers/AuthController.php(30): App\Core\Model->__construct()
+#3 /app/app/core/Router.php(42): App\Controllers\AuthController->__construct()
+#4 /app/public/index.php(31): App\Core\Router->dispatch()
+#5 {main}
+  thrown in /app/app/core/Database.php on line 32
+[Wed May 13 03:40:49 2026] [::1]:36988 Closing
+[Wed May 13 03:41:26 2026] [::1]:42970 Accepted
+[Wed May 13 03:41:26 2026] [::1]:42970 [200]: GET /
+[Wed May 13 03:41:26 2026] [::1]:42970 Closing

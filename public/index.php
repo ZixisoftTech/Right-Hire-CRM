@@ -1,16 +1,17 @@
 <?php
 
-require_once __DIR__ . '/../vendor/autoload.php';
+// Load Native Autoloader
+require_once __DIR__ . '/../app/core/Autoloader.php';
+require_once __DIR__ . '/../app/core/EnvParser.php';
 
-use Dotenv\Dotenv;
+use App\Core\EnvParser;
 use App\Core\Router;
 
-// Load Environment Variables
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
+// Parse .env file natively
+EnvParser::load(__DIR__ . '/../.env');
 
 // Error Reporting
-if ($_ENV['APP_ENV'] === 'development') {
+if (($_ENV['APP_ENV'] ?? 'production') === 'development') {
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
